@@ -26,25 +26,41 @@ Guarda los grados F en una variable y realiza las operaciones necesarias para co
 */
 
 const inputFar = document.getElementById('gradFar');
-const resultElement = document.getElementById('result2');
+const result2 = document.getElementById('result2');
 
 inputFar.addEventListener('input', () => {
   const F = parseFloat(inputFar.value);
-  const C = isNaN(F) ? 'Invalid input' : (F - 32) * 5/9;
-  resultElement.innerHTML = C.toFixed(2);
+  const C = isNaN(F) ? 'Entrada Invalida' : (F - 32) * 5/9;
+  result2.innerHTML = C.toFixed(2);
 });
 
 /*
 3. Calculador de propina para restaurante
 Guarda en variables la cantidad que gastó un cliente en un restaurante, en otra el 10% de propina, suma la cuenta total y concatena en una oración la info: "El cliente gasto: , La propina total es: , El total es: " Escribe tu código abajo
 */
-const consumo = document.getElementById('consumo');
-document.getElementById('result3').innerHTML = example;
+const consumoHTML = document.getElementById('consumo');
+const result3 = document.getElementById('result3');
+
+consumoHTML.addEventListener('input', () => {
+  const consumo = parseFloat(consumoHTML.value);
+  const cuentaTotal = isNaN(consumo) ? 'Entrada no Valida' : consumo  + (consumo *.10);
+  result3.innerHTML = cuentaTotal.toFixed(2);
+
+})
+
+
+
+
 
 /*
 4. Ejercicio libre
 Simula un ejercicio similar a los 3 enteriores para desplegar el resultado que tu quieras. Escribe tu código abajo
 */
+const curp = document.getElementById('curpHTML')
+const fecha = new Date(); 
+let fechaHoy = fecha.getFullYear();
+alert(fechaHoy)
+
 
 document.getElementById('result4').innerHTML = example;
 
