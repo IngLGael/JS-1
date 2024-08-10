@@ -56,13 +56,24 @@ consumoHTML.addEventListener('input', () => {
 4. Ejercicio libre
 Simula un ejercicio similar a los 3 enteriores para desplegar el resultado que tu quieras. Escribe tu código abajo
 */
-const curp = document.getElementById('curpHTML')
+const curpInput = document.getElementById('curpHTML')
 const fecha = new Date(); 
-let fechaHoy = fecha.getFullYear();
-alert(fechaHoy)
+var fechaHoy = fecha.getFullYear();
+var regex = /(\d+)/g;
+var curp = curpInput.toString();
+
+curpInput.addEventListener('input', () => {
+
+var intCurp = curp.match(regex);
+const intEdad = intCurp[0].slice(0,2)
+
+var intFechahoy = fechaHoy.toString();
+intFechahoy = intFechahoy.slice(-2)
+const edad = - (intEdad - intFechahoy)
+})
 
 
-document.getElementById('result4').innerHTML = example;
+document.getElementById('result4').innerHTML = edad;
 
 /*
 5. Ejercicio libre
