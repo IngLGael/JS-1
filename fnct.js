@@ -48,66 +48,70 @@ consumoHTML.addEventListener('input', () => {
 
 })
 
-
-
-
-
 /*
 4. Ejercicio libre
 Simula un ejercicio similar a los 3 enteriores para desplegar el resultado que tu quieras. Escribe tu código abajo
 */
-const curpInput = document.getElementById('curpHTML')
+const fechaInput = document.getElementById('fechaHTML')
 const fecha = new Date(); 
-var fechaHoy = fecha.getFullYear();
-var regex = /(\d+)/g;
-var curp = curpInput.toString();
 
-curpInput.addEventListener('input', () => {
-
-var intCurp = curp.match(regex);
-const intEdad = intCurp[0].slice(0,2)
-
-var intFechahoy = fechaHoy.toString();
-intFechahoy = intFechahoy.slice(-2)
-const edad = - (intEdad - intFechahoy)
-})
-
-
-document.getElementById('result4').innerHTML = edad;
+function calcularEdad() {
+  const fechaNac = new Date(fechaInput.value);
+  const edad =  isNaN(fechaNac) ? 'Entrada no valida': fecha.getFullYear() - fechaNac.getFullYear();
+  document.getElementById('result4').innerHTML = edad;
+  }
 
 /*
 5. Ejercicio libre
 Simula un ejercicio similar a los 3 enteriores para desplegar el resultado que tu quieras. Escribe tu código abajo
 */
+const inputIVA = document.getElementById('inputIVA');
+const result5 = document.getElementById('result5');
 
-document.getElementById('result5').innerHTML = example;
+inputIVA.addEventListener('input', () => {
+  const producto = parseFloat(inputIVA.value);
+  const fIVA = isNaN(producto) ? 'Entrada no Valida' : producto *.16;
+  result5.innerHTML = fIVA.toFixed(2);
+
+})
 
 
 /*
 6. Arrays
 Crea un array en una variable con los datos de tu elección, tiene que contener 10 y pueden ser de los tipos que elijas. Guarda en una variable la posición 5 y despliegala en el resultado. Escribe tu código abajo
 */
-
-document.getElementById('result6').innerHTML = example;
+//edades en mi familia, la mia sera mostrada 
+const edades = [6, 10, 42, 39, 40, 23, 65, 61, 50, 69]
+let miEdad = edades[5]
+document.getElementById('result6').innerHTML = miEdad;
 
 
 /*
 7. Arrays
 Crea un array en una variable con los tus canciones favoritas, despues reemplaza una con un nuevo valor. Guarda una en una variable y despliegala en el resultado. Escribe tu código abajo
 */
-
-document.getElementById('result7').innerHTML = example;
+const songsFav = ["vuelve", "Gata Only", "Eskeleto", "Daytona"]
+songsFav[0] = "Tuss"
+const mSongFav = songsFav[2]
+document.getElementById('result7').innerHTML = mSongFav;
 
 /*
 8. Objects
 Crea un object que represente alguna cosa del mundo real con sus distintas propiedades, reemplaza el valor de una propiedad por uno nuevo y despliega en el resultado el valor de alguna de las propiedades. Escribe tu código abajo
 */
-
-document.getElementById('result8').innerHTML = example;
+let pc = {brand:"predator", ram:16, ssd:512, color:"black w/ red" }
+pc.color = "white"
+document.getElementById('result8').innerHTML = pc.brand;
 
 /*
 9. Objects
 Crea un array de objects con elementos que tengan relacion y con sus propiedades, por ejemplo, paises, una wishlist, bandas de musica, etc. Despliega cualquier valor de alguna de las propiedades de los objetos Escribe tu código abajo
 */
+const tiendaDep = [
+  pc = {brand:"predator", ram:16, ssd:512, color:"black w/ red" },
+  car = {brand:"VW", model:"jetta", year:2020},
+  tv = {brand:"samsung", price:1500, width:45}
 
-document.getElementById('result9').innerHTML = example;
+]
+
+document.getElementById('result9').innerHTML = tiendaDep[1].model;
